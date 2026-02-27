@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>𝗡𝗲𝘂𝗿𝗼𝗧𝗿𝗮𝗱𝗲𝗫 COMMAND CENTER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['JetBrains Mono', 'monospace'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              'boss-gold': '#FFD700',
+              'boss-bg': '#05070A',
+              'boss-card': '#0D1117',
+              'boss-accent': '#00F3FF',
+              'boss-danger': '#FF003C',
+              'boss-success': '#00FF41',
+            },
+            animation: {
+              'scanner': 'scanner 3s linear infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              scanner: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              glow: {
+                'from': { 'box-shadow': '0 0 5px #00F3FF, 0 0 10px #00F3FF' },
+                'to': { 'box-shadow': '0 0 20px #00F3FF, 0 0 30px #00F3FF' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #05070A;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      .hud-border {
+        border: 1px solid rgba(0, 243, 255, 0.2);
+        position: relative;
+      }
+      .hud-border::before {
+        content: '';
+        position: absolute;
+        top: -1px; left: -1px; width: 10px; height: 10px;
+        border-top: 2px solid #00F3FF; border-left: 2px solid #00F3FF;
+      }
+      .hud-border::after {
+        content: '';
+        position: absolute;
+        bottom: -1px; right: -1px; width: 10px; height: 10px;
+        border-bottom: 2px solid #00F3FF; border-right: 2px solid #00F3FF;
+      }
+      .boss-gradient {
+        background: linear-gradient(135deg, #0D1117 0%, #161B22 100%);
+      }
+      .scan-line {
+        height: 2px;
+        background: linear-gradient(to right, transparent, #00F3FF, transparent);
+        width: 100%;
+        position: absolute;
+        z-index: 5;
+        opacity: 0.5;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://esm.run/@google/genai"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
